@@ -39,8 +39,7 @@ class ReviewController extends Controller
             ]);
         
         if ($request->hasFile('image')) {
-
-        $request->file('image')->store('/public/image');
+        $request->file('image')->store('/public/images');
         $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
         } else {
             $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
